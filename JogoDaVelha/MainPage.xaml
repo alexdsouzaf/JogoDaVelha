@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JogoDaVelha.MainPage">
+
+    <StackLayout>
+        <Frame VerticalOptions="Center" HorizontalOptions="Center">
+
+            <Grid WidthRequest="400" HeightRequest="400" VerticalOptions="Center" HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!--primeira linha-->
+                <Button x:Name="btn1" Grid.Row="0" Grid.Column="0" Clicked="btn1_Clicked"/>
+                <Button x:Name="btn2" Grid.Row="0" Grid.Column="1" Clicked="btn2_Clicked"/>
+                <Button x:Name="btn3" Grid.Row="0" Grid.Column="2" Clicked="btn3_Clicked"/>
+                <!--segunda filha-->
+                <Button x:Name="btn4" Grid.Row="1" Grid.Column="0" Clicked="btn4_Clicked"/>
+                <Button x:Name="btn5" Grid.Row="1" Grid.Column="1" Clicked="btn5_Clicked"/>
+                <Button x:Name="btn6" Grid.Row="1" Grid.Column="2" Clicked="btn6_Clicked"/>
+                <!--terceira linha-->
+                <Button x:Name="btn7" Grid.Row="2" Grid.Column="0" Clicked="btn7_Clicked"/>
+                <Button x:Name="btn8" Grid.Row="2" Grid.Column="1" Clicked="btn8_Clicked"/>
+                <Button x:Name="btn9" Grid.Row="2" Grid.Column="2" Clicked="btn9_Clicked"/>
+
+            </Grid>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
