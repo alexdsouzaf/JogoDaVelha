@@ -10,7 +10,7 @@ namespace JogoDaVelha
         {
             InitializeComponent();
 
-            MainPage = new Page2();
+            MainPage = new SelectionPage();
         }
 
         protected override void OnStart()

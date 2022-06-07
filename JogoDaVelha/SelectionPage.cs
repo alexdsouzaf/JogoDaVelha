@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace JogoDaVelha
 {
-    public class Page2 : ContentPage
+    public class SelectionPage : ContentPage
     {
         Button btnX = new Button()
         {
@@ -15,22 +15,24 @@ namespace JogoDaVelha
         };
         Button btnO = new Button()
         {
-            Text="O",            
+            Text = "O",            
         };
 
         
-        public Page2()
+        public SelectionPage()
         {
-
             btnO.Clicked += BtnO_Clicked;
             btnX.Clicked += BtnX_Clicked;
-            Content = new StackLayout
+
+            this.Content = new StackLayout
             {
+                Margin = new Thickness(100, 0, 0, 0),
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 Children = {
-                    new Label { Text = "Jogar com:" },
+                    new Label { Text = "        Jogar com:", FontSize = 20 },
                     new FlexLayout
                     {
-                        HorizontalOptions = LayoutOptions.Center,
+                        
                         Children =
                         {
                             btnX,
