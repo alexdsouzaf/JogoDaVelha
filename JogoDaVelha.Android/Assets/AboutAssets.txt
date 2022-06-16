@@ -17,3 +17,6 @@ public class ReadAsset : Activity
 Additionally, some Android functions will automatically load asset files:
 
 Typeface tf = Typeface.CreateFromAsset (Context.Assets, "fonts/samplefont.ttf");
+
+pra não esquecer a atribuição do ícone
+<a href="https://www.flaticon.com/br/icones-gratis/jogo-da-velha" title="jogo da velha ícones">Jogo da velha ícones criados por Pixel perfect - Flaticon</a>
