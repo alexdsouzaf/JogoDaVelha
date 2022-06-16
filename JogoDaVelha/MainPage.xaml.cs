@@ -14,6 +14,8 @@ namespace JogoDaVelha
         const string opcX = "X";
         const string opcO = "O";
 
+        private bool IATurn { get; set; }
+
         /// <summary>
         /// Caso o jogador tenha escolhido jogar com X
         /// </summary>
@@ -23,6 +25,8 @@ namespace JogoDaVelha
         /// Casoo jogador tenha escolhido jogar com O
         /// </summary>
         public bool playerO { get; set; }
+
+        public bool Encerrar { get; private set; }
 
         List<Button> list = new List<Button>();
 
@@ -60,12 +64,18 @@ namespace JogoDaVelha
                 item.Text = string.Empty;
                 item.IsEnabled = true;            
             });
+
+            this.Encerrar = false;
         }
 
+        /// <summary>
+        /// aqui fica em loop ao inves de dar velha
+        /// </summary>
         private void IAMove()
         {
-            try
+            if ( JogadasDisponiveis() )
             {
+                IATurn = true;
                 int index = random.Next(0, 9);
 
                 var IAChoice = list[index];
@@ -82,14 +92,17 @@ namespace JogoDaVelha
                 else
                     IAMove();
 
-
                 VerificaCombinacao();
             }
-            catch
+            else
             {
                 DisplayAlert("ATENÇÃO", "Não existem mais jogadas possíveis", "OK");
+                FimDeJogo();
             }
         }
+
+        private bool JogadasDisponiveis() => list.Any(item => item.Text == string.Empty);
+        
 
         /// <summary>
         /// metodo que verifica as possibilidades de vitoria
@@ -143,16 +156,25 @@ namespace JogoDaVelha
 
         private void WinConditions()
         {
-            
-            if (playerX || playerO)
-                DisplayAlert("Atenção", "Você venceu!","OK");
+
+            if ( (playerX || playerO) && !IATurn)
+                DisplayAlert("Atenção", "Você venceu!", "OK");
             else
                 DisplayAlert("Atenção", "Você perdeu!", "OK");
 
-            btnPlayAgain.IsVisible = 
+            FimDeJogo();
+        }
+
+        private void FimDeJogo()
+        {
+            this.IATurn = false;
+
+            btnPlayAgain.IsVisible =
             btnSair.IsVisible = true;
 
             list.ForEach(item => item.IsEnabled = false);
+
+            this.Encerrar = true;
         }
 
         #region[EVENTOS]
@@ -161,10 +183,17 @@ namespace JogoDaVelha
             if (playerX)
                 btn1.Text = opcX;
             
+            
             if (playerO)
                 btn1.Text = opcO;
-            
-            IAMove();
+
+            this.IATurn = false;
+            VerificaCombinacao();
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
         }
 
         private void btn2_Clicked(object sender, EventArgs e)
@@ -176,7 +205,13 @@ namespace JogoDaVelha
             if (playerO)
                 btn2.Text = opcO;
 
-            IAMove();
+            this.IATurn = false;
+            VerificaCombinacao();
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
         }
 
         private void btn3_Clicked(object sender, EventArgs e)
@@ -188,7 +223,16 @@ namespace JogoDaVelha
             if (playerO)
                 btn3.Text = opcO;
 
-             IAMove();
+            this.IATurn = false;
+            VerificaCombinacao();
+
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
+
+
         }
 
         private void btn4_Clicked(object sender, EventArgs e)
@@ -200,7 +244,13 @@ namespace JogoDaVelha
             if (playerO)
                 btn4.Text = opcO;
 
-            IAMove();
+            this.IATurn = false;
+            VerificaCombinacao();
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
         }
 
         private void btn5_Clicked(object sender, EventArgs e)
@@ -212,7 +262,13 @@ namespace JogoDaVelha
             if (playerO)
                 btn5.Text = opcO;
 
-            IAMove();
+            this.IATurn = false;
+            VerificaCombinacao();
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
         }
 
         private void btn6_Clicked(object sender, EventArgs e)
@@ -224,7 +280,13 @@ namespace JogoDaVelha
             if (playerO)
                 btn6.Text = opcO;
 
-            IAMove();
+            this.IATurn = false;
+            VerificaCombinacao();
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
         }
 
         private void btn7_Clicked(object sender, EventArgs e)
@@ -236,7 +298,13 @@ namespace JogoDaVelha
             if (playerO)
                 btn7.Text = opcO;
 
-            IAMove();
+            this.IATurn = false;
+            VerificaCombinacao();
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
         }
 
         private void btn8_Clicked(object sender, EventArgs e)
@@ -247,7 +315,13 @@ namespace JogoDaVelha
             if (playerO)
                 btn8.Text = opcO;
 
-             IAMove();
+            this.IATurn = false;
+            VerificaCombinacao();
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
         }
 
         private void btn9_Clicked(object sender, EventArgs e)
@@ -258,7 +332,13 @@ namespace JogoDaVelha
             if (playerO)
                 btn9.Text = opcO;
 
-            IAMove();
+            this.IATurn = false;
+            VerificaCombinacao();
+            if (!this.Encerrar)
+            {
+                IAMove();
+                this.IATurn = false;
+            }
         }
 
         private void btnPlayAgain_Clicked(object sender, EventArgs e) => carregaListaEspacos();
